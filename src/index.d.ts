@@ -1,7 +1,7 @@
 import { StyleProp, TextInputProps, TextStyle, ViewStyle } from 'react-native';
 import React = require('react');
 
-type Props = {
+export type SmoothPinCodeInputProps = {
   value: string,
   codeLength: number,
   cellSize?: number,
@@ -40,5 +40,5 @@ type Props = {
   inputProps?: TextInputProps,
 };
 
-export default class SmoothPinCodeInput extends React.Component<Props, any> {
+export default class SmoothPinCodeInput extends React.Component<SmoothPinCodeInputProps, any> {
 }
