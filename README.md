@@ -1,5 +1,7 @@
 # React Native Smooth Pincode Input
 
+This fork makes this package work on react-native-web by replacing propTypes with ts definitions
+. It was namely ViewPropTypes that were not supported by react-native-web.
 A cross-platform, smooth, lightweight, customizable PIN code input component for React Native.
 
 Most PIN code inputs components implemented by combining several TextInputs. They works, however, not good enough. When user types fast, or system sluggish, characters may lost when component switching focus between TextInputs. User need to type over and over again to get a correct input, gave a frustrated user experience.

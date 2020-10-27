@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  I18nManager,
-  ViewPropTypes,
-} from 'react-native';
+import { I18nManager, StyleSheet, Text, TextInput, View, } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
 const styles = StyleSheet.create({
@@ -45,7 +37,7 @@ class SmoothPinCodeInput extends Component {
     return this.ref.current[animation](duration);
   };
 
-  shake = () => this.animate({animation: "shake"});
+  shake = () => this.animate({ animation: "shake" });
 
   focus = () => {
     return this.inputRef.current.focus();
@@ -142,7 +134,10 @@ class SmoothPinCodeInput extends Component {
       <Animatable.View
         ref={this.ref}
         style={[{
-          alignItems: 'stretch', flexDirection: 'row', justifyContent: 'center', position: 'relative',
+          alignItems: 'stretch',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          position: 'relative',
           width: cellSize * codeLength + cellSpacing * (codeLength - 1),
           height: cellSize,
         },
@@ -150,7 +145,7 @@ class SmoothPinCodeInput extends Component {
         ]}>
         <View style={{
           position: 'absolute', margin: 0, height: '100%',
-          flexDirection: I18nManager.isRTL ? 'row-reverse': 'row',
+          flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
           alignItems: 'center',
         }}>
           {
@@ -167,7 +162,7 @@ class SmoothPinCodeInput extends Component {
               if (filled || placeholder !== null) {
                 if (showMask && isMaskText) {
                   cellText = mask;
-                } else if(!filled && isPlaceholderText) {
+                } else if (!filled && isPlaceholderText) {
                   cellText = placeholder;
                 } else if (pinCodeChar) {
                   cellText = pinCodeChar;
@@ -199,7 +194,8 @@ class SmoothPinCodeInput extends Component {
                   iterationCount="infinite"
                   duration={500}
                 >
-                  {isCellText && !maskComponent && <Text style={[textStyle, cellFocused ? textStyleFocused : {}]}>
+                  {isCellText && !maskComponent &&
+                  <Text style={[textStyle, cellFocused ? textStyleFocused : {}]}>
                     {cellText}
                   </Text>}
 
@@ -264,53 +260,5 @@ class SmoothPinCodeInput extends Component {
     disableFullscreenUI: true,
   };
 }
-
-SmoothPinCodeInput.propTypes = {
-  value: PropTypes.string,
-  codeLength: PropTypes.number,
-  cellSize: PropTypes.number,
-  cellSpacing: PropTypes.number,
-
-  placeholder: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
-  mask: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
-  maskDelay: PropTypes.number,
-  password: PropTypes.bool,
-
-  autoFocus: PropTypes.bool,
-
-  restrictToNumbers: PropTypes.bool,
-
-  containerStyle: ViewPropTypes.style,
-
-  cellStyle: ViewPropTypes.style,
-  cellStyleFocused: ViewPropTypes.style,
-  cellStyleFilled: ViewPropTypes.style,
-
-  textStyle: Text.propTypes.style,
-  textStyleFocused: Text.propTypes.style,
-
-  animated: PropTypes.bool,
-  animationFocused: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ]),
-
-  onFulfill: PropTypes.func,
-  onChangeText: PropTypes.func,
-  onBackspace: PropTypes.func,
-  onTextChange: PropTypes.func,
-  testID: PropTypes.any,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  keyboardType: PropTypes.string,
-  editable: PropTypes.bool,
-  inputProps: PropTypes.exact(TextInput.propTypes),
-};
 
 export default SmoothPinCodeInput;
