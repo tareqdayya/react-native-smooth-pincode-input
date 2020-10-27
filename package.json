@@ -24,6 +24,7 @@
     "react-native": "*",
     "react": "*"
   },
+  "types": "src/index.d.ts",
   "dependencies": {
     "prop-types": "^15.5.10",
     "react-native-animatable": "^1.3.0"
